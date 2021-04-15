@@ -39,4 +39,8 @@ public class AccountController {
         accountTccImpl.prepareCreateOrder(null);
         return "Account decrease success";
     }
+    @RequestMapping("findUser")
+    public  String findUser(@RequestParam("userId") Long userId){
+        return accountServiceImpl.findUser(userId);
+    }
 }

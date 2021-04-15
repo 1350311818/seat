@@ -14,6 +14,6 @@ public interface AccountService {
      * @param userId 用户id
      * @param money 金额
      */
-    @CachePut
     void decrease(Long userId, BigDecimal money) throws InterruptedException;
+    String findUser(Long userId);
 }

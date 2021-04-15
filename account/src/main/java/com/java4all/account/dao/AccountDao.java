@@ -14,4 +14,5 @@ public interface AccountDao {
      * @param money 金额
      */
     void decrease(@Param("userId") Long userId, @Param("money") BigDecimal money);
+    String findUser(@Param("userId") Long userId);
 }

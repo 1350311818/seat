@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Service;
 
 /**
@@ -34,5 +35,13 @@ public class AccountServiceImpl implements AccountService{
 
         accountDao.decrease(userId,money);
         LOGGER.info("------->扣减账户结束account中");
+    }
+
+    @Override
+    @CachePut(value = "conmon",key = "#userId")
+    public String findUser(Long userId) {
+        LOGGER.info("------->查找user");
+
+        return accountDao.findUser(userId);
     }
 }
